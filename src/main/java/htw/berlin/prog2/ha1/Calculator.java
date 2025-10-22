@@ -80,10 +80,11 @@ public class Calculator {
             case "1/x" -> 1 / Double.parseDouble(screen);
             default -> throw new IllegalArgumentException();
         };
+        result = Math.round(result * 100000000d) / 100000000d;
         screen = Double.toString(result);
         if(screen.equals("NaN")) screen = "Error";
         if(screen.contains(".") && screen.length() > 11) screen = screen.substring(0, 10);
-
+        if(screen.endsWith(".0")) screen = screen.substring(0,screen.length()-2);
     }
 
     /**
