@@ -121,22 +121,19 @@ class CalculatorTest {
     }
 
     @Test
-    @DisplayName("should display negative Subtraction")
-    void testNegativeSubtraction() {
+    @DisplayName("should display correct square root of 3")
+    void testSquareRootOfThree() {
         Calculator calc = new Calculator();
 
-        calc.pressDigitKey(1);
-        calc.pressDigitKey(0);
-        calc.pressNegativeKey();
-        calc.pressBinaryOperationKey("-");
-        calc.pressDigitKey(4);
-        calc.pressNegativeKey();
+        calc.pressDigitKey(3);
+        calc.pressUnaryOperationKey("√");
 
-        String expected = "-6";
+        String expected = "1.73205081";
         String actual = calc.readScreen();
 
         assertEquals(expected, actual);
     }
+
 
 
 
